@@ -1,15 +1,22 @@
 <style>
-  .main-content {
+  * {
+    transition: transform 1.5s ease;
+  }
+
+  .main {
+    background-color: #223843;
     padding-top: 80px;
+    justify-content: center;
+    align-items: center;
   }
 
   .nav-bar {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    padding: 8px;
-    background-color: #223843;
-    color: #fff;
+    padding: 16px;
+    background-color: #eff1f3;
+    color: #000000;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   }
 </style>
@@ -20,31 +27,30 @@
       <a
         routerLink="/"
         routerLinkActive="font-bold"
-        class="text-sm font-semibold"
+        class="text-2xl font-normal transition-transform duration-1600 ease-in-out hover:scale-110"
         >Home</a
       >
+
       <a
         routerLink="/about"
         routerLinkActive="font-bold"
-        class="text-sm font-semibold"
+        class="text-2xl font-normal transition-transform duration-1600 ease-in-out hover:scale-110"
         >About</a
       >
       <a
         routerLink="/career"
         routerLinkActive="font-bold"
-        class="text-sm font-semibold"
+        class="text-2xl font-normal transition-transform duration-1600 ease-in-out hover:scale-110"
         >Career</a
       >
       <a
         routerLink="/repositories"
         routerLinkActive="font-bold"
-        class="text-sm font-semibold"
+        class="text-2xl font-normal transition-transform duration-1600 ease-in-out hover:scale-110"
         >Repositories</a
       >
     </nav>
   </header>
 
-  <div class="main-content">
-    <router-outlet />
-  </div>
+  <router-outlet />
 </main>
