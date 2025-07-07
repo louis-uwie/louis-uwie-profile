@@ -41,6 +41,8 @@ export class App implements AfterViewInit {
   availablePages = [Home, About, Education, Career, Repositories];
   loadedPages: any[] = [];
 
+  public currentPageIndex = 0;
+
   @ViewChildren('pageRef') pageElements!: QueryList<ElementRef>;
   private observer!: IntersectionObserver;
   private snapTimeout: any;
@@ -80,9 +82,10 @@ export class App implements AfterViewInit {
 
     this.observer = new IntersectionObserver(
       (entries) => {
-        const mostVisible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const visibleEntries = entries.filter((entry) => entry.isIntersecting);
+        const mostVisible = visibleEntries.sort(
+          (a, b) => b.intersectionRatio - a.intersectionRatio,
+        )[0];
 
         if (mostVisible && mostVisible.intersectionRatio >= 0.4) {
           clearTimeout(this.snapTimeout);
@@ -93,6 +96,11 @@ export class App implements AfterViewInit {
               block: 'start',
             });
           }, 150);
+
+          // Update currentPageIndex here
+          this.currentPageIndex = this.pageElements
+            .toArray()
+            .findIndex((el) => el.nativeElement === mostVisible.target);
         }
       },
       {
