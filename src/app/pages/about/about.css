@@ -1,0 +1,13 @@
+.left-col,
+.right-col {
+  width: 100%;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .left-col,
+  .right-col {
+    width: 50%;
+    float: left;
+  }
+}
