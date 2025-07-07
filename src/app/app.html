@@ -8,188 +8,171 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    scroll-snap-type: y mandatory;
     scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
     overflow-y: auto;
-  }
-
-  .main {
-    display: flex;
+    overflow-x: none;
   }
 
   .scroll-container {
-    margin-left: 240px; /* to account for sidebar */
+    margin-left: 240px;
     width: calc(100vw - 240px);
+    scroll-snap-type: y mandatory;
   }
 
   .page {
-    scroll-snap-align: start;
     height: 100vh;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    scroll-snap-align: start;
   }
 
   .main {
-    padding-top: 80px;
     justify-content: center;
     align-items: center;
   }
 
-  .nav-bar {
+  .sidebar {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    gap: 30px;
     color: #fff;
-  }
 
-  .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     width: 240px;
     height: 100vh;
-    background-color: #0b132b;
   }
 
   a {
     display: flex;
-    padding: 20px;
-    margin: 20px;
+    padding: 12px;
+    margin: 12px;
     transition: all 0.3s ease-in-out;
   }
 
   a:hover {
     scale: 1.15;
-    margin-left: 44px;
-    padding-left: 44px;
+    margin-left: 24px;
+    padding-left: 24px;
   }
 </style>
 
 <main class="main">
-  <!-- Sidebar remains fixed -->
   <aside class="sidebar">
-    <nav class="nav-bar" aria-label="Global">
-      <!-- <header class="fixed inset-x-0 top-0 z-50"> -->
-      <!-- https://heroicons.com/ -->
-      <aside class="sidebar">
-        <nav class="nav-bar" aria-label="Global">
-          <a
-            routerLink="/"
-            routerLinkActive="font-bold"
-            class="text-xl font-light"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6 m-1"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
-              />
-            </svg>
-            Home</a
-          >
+    <!-- <header class="fixed inset-x-0 top-0 z-50"> -->
+    <!-- https://heroicons.com/ -->
+    <aside class="sidebar">
+      <a routerLink="/" routerLinkActive="font-bold" class="text-xl font-light">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 m-1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m2.25 12 8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25"
+          />
+        </svg>
+        Home</a
+      >
 
-          <a
-            routerLink="/about"
-            routerLinkActive="font-bold"
-            class="text-2xl font-light"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6 m-1"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
-              />
-            </svg>
-            About</a
-          >
+      <a
+        routerLink="/about"
+        routerLinkActive="font-bold"
+        class="text-2xl font-light"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 m-1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+          />
+        </svg>
+        About</a
+      >
 
-          <a
-            routerLink="/about"
-            routerLinkActive="font-bold"
-            class="text-2xl font-light"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6 m-1"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
-              />
-            </svg>
-            Education
-          </a>
+      <a
+        routerLink="/about"
+        routerLinkActive="font-bold"
+        class="text-2xl font-light"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 m-1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4.26 10.147a60.438 60.438 0 0 0-.491 6.347A48.62 48.62 0 0 1 12 20.904a48.62 48.62 0 0 1 8.232-4.41 60.46 60.46 0 0 0-.491-6.347m-15.482 0a50.636 50.636 0 0 0-2.658-.813A59.906 59.906 0 0 1 12 3.493a59.903 59.903 0 0 1 10.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0 1 12 13.489a50.702 50.702 0 0 1 7.74-3.342M6.75 15a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm0 0v-3.675A55.378 55.378 0 0 1 12 8.443m-7.007 11.55A5.981 5.981 0 0 0 6.75 15.75v-1.5"
+          />
+        </svg>
+        Education
+      </a>
 
-          <a
-            routerLink="/career"
-            routerLinkActive="font-bold"
-            class="text-2xl font-light"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
-              />
-            </svg>
-            Career</a
-          >
-          <a
-            routerLink="/repositories"
-            routerLinkActive="font-bold"
-            class="text-2xl font-light"
-            ><svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              class="size-6 m-1"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
-              />
-            </svg>
-            Repositories
-          </a>
-        </nav>
-        <!-- </header> -->
-      </aside>
-    </nav>
+      <a
+        routerLink="/career"
+        routerLinkActive="font-bold"
+        class="text-2xl font-light"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M15.666 3.888A2.25 2.25 0 0 0 13.5 2.25h-3c-1.03 0-1.9.693-2.166 1.638m7.332 0c.055.194.084.4.084.612v0a.75.75 0 0 1-.75.75H9a.75.75 0 0 1-.75-.75v0c0-.212.03-.418.084-.612m7.332 0c.646.049 1.288.11 1.927.184 1.1.128 1.907 1.077 1.907 2.185V19.5a2.25 2.25 0 0 1-2.25 2.25H6.75A2.25 2.25 0 0 1 4.5 19.5V6.257c0-1.108.806-2.057 1.907-2.185a48.208 48.208 0 0 1 1.927-.184"
+          />
+        </svg>
+        Career</a
+      >
+      <a
+        routerLink="/repositories"
+        routerLinkActive="font-bold"
+        class="text-2xl font-light"
+        ><svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-6 m-1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"
+          />
+        </svg>
+        Repositories
+      </a>
+      <!-- </header> -->
+    </aside>
   </aside>
 
-  <!-- Scrollable content -->
   <div
     class="scroll-container"
     infiniteScroll
@@ -198,14 +181,16 @@
     [scrollWindow]="true"
     (scrolled)="onScroll()"
   >
-    @for (component of loadedPages; track component) {
-      <div class="page">
-        <ng-container *ngComponentOutlet="component"></ng-container>
-      </div>
-    }
+    <p>Loaded pages: {{ loadedPages.length }}</p>
 
-    @if (loading) {
-      <div class="page">Loading more content...</div>
-    }
+    <div
+      class="page"
+      *ngFor="let component of loadedPages; trackBy: trackByFn"
+      #pageRef
+    >
+      <ng-container *ngComponentOutlet="component"></ng-container>
+    </div>
+
+    <div class="page" *ngIf="loading">Loading more content…</div>
   </div>
 </main>

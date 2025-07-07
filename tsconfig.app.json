@@ -7,7 +7,8 @@
     "types": ["node"]
   },
   "angularCompilerOptions": {
-    "controlFlow": "enabled"
+    "controlFlow": "enabled",
+    "enableControlFlow": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["src/**/*.spec.ts"]
