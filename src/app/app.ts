@@ -14,6 +14,7 @@ import { NgComponentOutlet } from '@angular/common';
 // Page components
 import { Home } from './pages/home/home';
 import { About } from './pages/about/about';
+import { Education } from './pages/education/education';
 import { Career } from './pages/career/career';
 import { Repositories } from './pages/repositories/repositories';
 
@@ -26,6 +27,7 @@ import { Repositories } from './pages/repositories/repositories';
     InfiniteScrollDirective,
     Home,
     About,
+    Education,
     Career,
     Repositories,
   ],
@@ -36,7 +38,7 @@ export class App implements AfterViewInit {
   loading = false;
   page = 0;
 
-  availablePages = [Home, About, Career, Repositories];
+  availablePages = [Home, About, Education, Career, Repositories];
   loadedPages: any[] = [];
 
   @ViewChildren('pageRef') pageElements!: QueryList<ElementRef>;
@@ -112,5 +114,15 @@ export class App implements AfterViewInit {
 
   trackByFn(index: number, component: any): any {
     return component;
+  }
+
+  scrollToPage(index: number) {
+    const pages = this.pageElements.toArray();
+    if (pages[index]) {
+      pages[index].nativeElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
   }
 }
