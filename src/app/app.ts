@@ -87,17 +87,9 @@ export class App implements AfterViewInit {
           (a, b) => b.intersectionRatio - a.intersectionRatio,
         )[0];
 
-        if (mostVisible && mostVisible.intersectionRatio >= 0.4) {
+        if (mostVisible && mostVisible.intersectionRatio >= 0.1) {
           clearTimeout(this.snapTimeout);
 
-          this.snapTimeout = setTimeout(() => {
-            mostVisible.target.scrollIntoView({
-              behavior: 'smooth',
-              block: 'start',
-            });
-          }, 150);
-
-          // Update currentPageIndex here
           this.currentPageIndex = this.pageElements
             .toArray()
             .findIndex((el) => el.nativeElement === mostVisible.target);
