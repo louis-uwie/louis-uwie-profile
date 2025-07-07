@@ -52,24 +52,7 @@ export class App implements AfterViewInit {
     this.isBrowser = isPlatformBrowser(this.platformId);
 
     if (this.isBrowser) {
-      this.loadNextPage();
-    }
-  }
-
-  loadNextPage() {
-    if (this.page < this.availablePages.length) {
-      this.loading = true;
-      setTimeout(() => {
-        this.loadedPages.push(this.availablePages[this.page]);
-        this.page++;
-        this.loading = false;
-      }, 600);
-    }
-  }
-
-  onScroll() {
-    if (!this.loading) {
-      this.loadNextPage();
+      this.loadedPages = [...this.availablePages];
     }
   }
 

@@ -23,7 +23,6 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
   }
 
   .main {
@@ -178,14 +177,16 @@
     <!-- </header> -->
   </aside>
 
-  <div
-    class="scroll-container"
-    infiniteScroll
-    [infiniteScrollDistance]="2"
-    [infiniteScrollThrottle]="300"
-    [scrollWindow]="true"
-    (scrolled)="onScroll()"
-  >
+  <div class="scroll-container">
+    <!-- THIS IS A BLOCK COMMENT
+
+    Commenting this out from div scroll container.
+    This is because I'm temporarily removing snapping and and lazy loading
+    feature. infiniteScroll [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="300" [scrollWindow]="true" (scrolled)="onScroll()"
+
+    THIS IS A BLOCK COMMENT -->
+
     <p>Loaded pages: {{ loadedPages.length }}</p>
 
     <div
@@ -199,11 +200,7 @@
     <div class="page" *ngIf="loading">Loading more content…</div>
   </div>
 
-  <b
-    *ngIf="currentPageIndex > 0"
-    (click)="scrollToPage(0)"
-    class="elevator-button"
-  >
+  <b (click)="scrollToPage(0)" class="elevator-button">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
